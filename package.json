@@ -1,0 +1,23 @@
+{
+  "name": "supervillain-rest-api",
+  "version": "1.0.0",
+  "description": "Supervillain REST API =====================",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcinBalejko/supervillain-rest-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcinBalejko/supervillain-rest-api/issues"
+  },
+  "homepage": "https://github.com/MarcinBalejko/supervillain-rest-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
