@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MarcinBalejko/supervillain-rest-api#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.8.3",
     "nodemon": "^2.0.2"
   }
 }
