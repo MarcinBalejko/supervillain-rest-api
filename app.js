@@ -2,8 +2,19 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+require('dotenv/config');
 
-dotenv.config();
+
+// Import Routes
+const villainsRoute = require('./routes/villains');
+
+app.use('/villains', villainsRoute);
+
+// ROUTES
+app.get('/', (req, res) => {
+    res.send('We are on home');
+});
+
 
 // Connect to DB
 mongoose.connect(
@@ -11,13 +22,5 @@ mongoose.connect(
     console.log('connected to db!')
 );
 
-// ROUTES
-app.get('/', (req, res) => {
-    res.send('We are on home');
-});
-
-app.get('/villains', (req, res) => {
-    res.send('We are on the villains list');
-});
 
 app.listen(3000, () => console.log('Server Up and running'));
