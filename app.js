@@ -3,8 +3,12 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
 
+
+// MIDDLEWARES
+app.use(cors());
 app.use(bodyParser.json());   // Anytime we hit any request the body-parser will run
 
 
