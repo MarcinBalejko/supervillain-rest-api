@@ -4,6 +4,7 @@ const Villain = require('../models/Villain');
 
 
 // ROUTES
+// GETS BACK ALL THE VILLAIN
 
 router.get('/', async (req, res) => {
     try {
@@ -14,6 +15,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+// SUBMITS A VILLAIN
 router.post('/', async (req, res) => {
     const villain = new Villain({
         name: req.body.name,
@@ -26,6 +29,16 @@ router.post('/', async (req, res) => {
     try {
         const savedVillain = await villain.save();
         res.json(savedVillain);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
+// GETS BACK A SPECIFIC VILLAIN
+router.get('/:villainId', async (req, res) => {
+    try {
+        const villain = await Villain.findById(req.params.villainId);
+        res.json(villain);
     } catch (err) {
         res.json({ message: err });
     }
