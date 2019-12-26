@@ -54,5 +54,27 @@ router.delete('/:villainId', async (req, res) => {
     }
 });
 
+// UPDATE VILLAIN'S INFORMATION
+router.patch('/:villainId', async (req, res) => {
+    try {
+        const updatedVillain = await Villain.updateOne(
+            { _id: req.params.villainId },
+            {
+                $set: {
+                    name: req.body.name,
+                    description: req.body.description,
+                    power: req.body.power,
+                    universe: req.body.universe,
+                    enemy: req.body.enemy,
+                    picture: req.body.picture
+                },
+            }
+        );
+        res.json(updatedVillain);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
 
 module.exports = router;
