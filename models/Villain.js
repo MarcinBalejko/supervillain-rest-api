@@ -13,7 +13,7 @@ const VillainSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    universe: {
+    identity: {
         type: String,
         required: true
     },

@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         power: req.body.power,
-        universe: req.body.universe,
+        identity: req.body.identity,
         enemy: req.body.enemy,
         picture: req.body.picture
     });
