@@ -44,5 +44,15 @@ router.get('/:villainId', async (req, res) => {
     }
 });
 
+// DELETE A SPECIFIC VILLAIN
+router.delete('/:villainId', async (req, res) => {
+    try {
+        const removedVillain = await Villain.remove({ _id: req.params.villainId });
+        res.json(removedVillain);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
 
 module.exports = router;
