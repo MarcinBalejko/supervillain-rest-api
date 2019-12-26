@@ -3,19 +3,32 @@ const router = express.Router();
 const Villain = require('../models/Villain');
 
 
-
 // ROUTES
 
-router.get('/', (req, res) => {
-    res.send('We are on the villains');
+router.get('/', async (req, res) => {
+    try {
+        const villains = await Villain.find();
+        res.json(villains);
+    } catch (err) {
+        res.json({ message: err });
+    }
 });
 
-router.get('/specific', (req, res) => {
-    res.send('Specific villain')
-});
-
-router.post('/', (req, res) => {
-    console.log(req.body);
+router.post('/', async (req, res) => {
+    const villain = new Villain({
+        name: req.body.name,
+        description: req.body.description,
+        power: req.body.power,
+        universe: req.body.universe,
+        enemy: req.body.enemy,
+        picture: req.body.picture
+    });
+    try {
+        const savedVillain = await villain.save();
+        res.json(savedVillain);
+    } catch (err) {
+        res.json({ message: err });
+    }
 });
 
 
