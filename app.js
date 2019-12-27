@@ -1,4 +1,3 @@
-const port = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
@@ -31,4 +30,4 @@ mongoose.connect(
 );
 
 
-app.listen(3000, () => console.log('Server Up and running'));
+app.listen(process.env.PORT || 3000);
