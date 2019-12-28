@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -22,10 +21,14 @@ app.get('/', (req, res) => {
     res.send('We are on home');
 });
 
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+}
 
 // Connect to DB
 mongoose.connect(
-    process.env.DB_CONNECT, { useUnifiedTopology: true }, () =>
+    process.env.DB_CONNECT, options, () =>
     console.log('connected to db!')
 );
 
