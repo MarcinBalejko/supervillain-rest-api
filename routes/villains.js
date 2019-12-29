@@ -24,7 +24,9 @@ router.post('/', async (req, res) => {
         power: req.body.power,
         identity: req.body.identity,
         enemy: req.body.enemy,
-        picture: req.body.picture
+        picture: req.body.picture,
+        secondpicture: req.body.secondpicture,
+        enemypicture: req.body.enemypicture
     });
     try {
         const savedVillain = await villain.save();

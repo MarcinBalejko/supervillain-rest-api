@@ -25,6 +25,14 @@ const VillainSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    secondpicture: {
+        type: String,
+        required: true
+    },
+    enemypicture: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
